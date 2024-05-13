@@ -1,24 +1,35 @@
 import "../styles/App.scss";
+import Dice from "./Dice";
+import { useState } from "react";
 // 
 function App() {
-  const [grogu,setGrogu]= useState ("");
-  const [coockie,setCoockie]= useState ("");
-  const [egg,setEgg]= useState ("");
-  const [frog,setFrog]= useState ("");
+  //const [grogu,setGrogu]= useState ("");
+  //const [coockie,setCoockie]= useState ("");
+  //const [egg,setEgg]= useState ("");
+  //const [frog,setFrog]= useState ("");
   const [dice,setDice]= useState ("");
-  const [result,setresult]= useState ("");
+  //const [result,setresult]= useState ("");
   // Función que oculte divs de las mercancias o mover los pies +1 casilla
   const getRandomNumber = (max) =>{
     return Math.ceil(Math.random() * max);
+   
   }
 
-  const getDiceMove = () =>{
+  const rollDice = () =>{
     //segun nº que obtengamos tendremos un movimiento
+    const randomNumber = getRandomNumber(4);
+    if (randomNumber === 1){
+      //Quitamos galleta
+    }else if(randomNumber === 2){
+      //Quitamos huevo
+    }else if (randomNumber === 3){
+      //Quitamos rana
+    }else{
+      //Avanza Grogu
+    }
+    console.log(randomNumber);
   }
 
-  const handleClick = () =>{
-
-  }
 
   return (
     <>
@@ -41,7 +52,8 @@ function App() {
       </section>
 
       <section>
-        <button className="dice" onClick={handleClick} >Lanzar Dado</button>
+        <Dice rollDice={rollDice}/>
+      {/*   <button className="dice"  >Lanzar Dado</button> */}
         <div className="game-status">En curso</div>
       </section>
 
