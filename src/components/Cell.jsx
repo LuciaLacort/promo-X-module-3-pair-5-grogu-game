@@ -4,7 +4,7 @@ import Grogu from './Grogu';
 const Cell = ({isGroguHere}) => {
 
   return (
-    <div>{isGroguHere&& <Grogu/>}</div>
+    <div className='cell'>{isGroguHere && <Grogu/>}</div>
   )
 }
 

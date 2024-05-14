@@ -7,7 +7,6 @@ const Board = ({grogu}) => {
 
   return (
     <section className="board">
-    <Grogu />
 
     {cells.map((_,index) => (<Cell key={index} isGroguHere={index===grogu}/>))}
 
