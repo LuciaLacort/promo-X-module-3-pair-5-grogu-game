@@ -4,12 +4,12 @@ import Header from "./Header";
 import Board from "./Board";
 // 
 function App() {
-  // const [grogu,setGrogu]= useState ("");
-  // const [coockie,setCoockie]= useState ("");
-  // const [egg,setEgg]= useState ("");
-  // const [frog,setFrog]= useState ("");
-  // const [dice,setDice]= useState ("");
-  // const [status,setStatus]= useState ("");
+  const [grogu,setGrogu]= useState (0);
+  const [coockie,setCoockie]= useState (["🍪","🍪","🍪"]);
+  const [egg,setEgg]= useState (["🥚","🥚","🥚"]);
+  const [frog,setFrog]= useState (["🐸","🐸","🐸"]);
+  const [dice,setDice]= useState (null);
+  const [status,setStatus]= useState ("En curso");
 
   const [cell, setCell] = useState();
 
@@ -18,20 +18,20 @@ function App() {
     return Math.ceil(Math.random() * max);
   }
 
-  const getDiceMove = () =>{
-    //segun nº que obtengamos tendremos un movimiento
-    const randomNumber = getRandomNumber(4);
-    console.log(randomNumber);
-    if(randomNumber === 4){
-      //Grogu se mueve una casilla
-    }else if (randomNumber === 3){
-      //Ocultar coockie
-    }else if (randomNumber === 2){
-      //Ocultamos egg
-    }else (randomNumber === 1){
-      // Ocultamos frog
-    }
-  };
+  // const getDiceMove = () =>{
+  //   //segun nº que obtengamos tendremos un movimiento
+  //   const randomNumber = getRandomNumber(4);
+  //   console.log(randomNumber);
+  //   if(randomNumber === 4){
+  //     //Grogu se mueve una casilla
+  //   }else if (randomNumber === 3){
+  //     //Ocultar coockie
+  //   }else if (randomNumber === 2){
+  //     //Ocultamos egg
+  //   }else (randomNumber === 1){
+  //     // Ocultamos frog
+  //   }
+  // };
 
   const handleClick = () =>{
     getDiceMove()
@@ -45,13 +45,12 @@ function App() {
       <form action="">
         <input type="text" name= "name" />
       </form>
-      <Board />
+      <Board grogu={grogu}/>
  
       <section>
         <button className="dice" onClick={handleClick} >Lanzar Dado</button>
         <div className="game-status">En curso</div>
       </section>
-
       <section className="goods-container">
         <div className="goods-item">🍪</div>
         <div className="goods-item">🍪</div>

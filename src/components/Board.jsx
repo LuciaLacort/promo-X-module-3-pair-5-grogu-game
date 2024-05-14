@@ -1,17 +1,23 @@
 import Grogu from "./Grogu"
+import Cell from "./Cell"
 
+const Board = ({grogu}) => {
 
-const Board = () => {
+  const cells = Array(7).fill(null)
 
   return (
     <section className="board">
     <Grogu />
+
+    {cells.map((_,index) => (<Cell key={index} isGroguHere={index===grogu}/>))}
+
+
+    {/* <div className="cell"></div>
     <div className="cell"></div>
     <div className="cell"></div>
     <div className="cell"></div>
     <div className="cell"></div>
-    <div className="cell"></div>
-    <div className="cell"></div>
+    <div className="cell"></div> */}
   </section>
   )
 }
