@@ -1,4 +1,4 @@
-import Grogu from "./Grogu"
+
 import Cell from "./Cell"
 
 const Board = ({grogu}) => {
@@ -8,15 +8,18 @@ const Board = ({grogu}) => {
   return (
     <section className="board">
 
-    {cells.map((_,index) => (<Cell key={index} isGroguHere={index===grogu}/>))}
+    {cells.map((_,index) => (<Cell key={index} groguPosition={index===grogu}/>))}
+  
+      
+   
 
-
-    {/* <div className="cell"></div>
+  
+   {/*<div className="cell"></div>
     <div className="cell"></div>
     <div className="cell"></div>
     <div className="cell"></div>
     <div className="cell"></div>
-    <div className="cell"></div> */}
+  <div className="cell"></div> */}
   </section>
   )
 }
