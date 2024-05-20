@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./Header";
 import Board from "./Board";
 import Dice from "./Dice";
+import Good from "./Good";
 // 
 function App() {
   const [grogu,setGrogu]= useState (0);
@@ -25,18 +26,35 @@ function App() {
     console.log(randomNumber);
     if(randomNumber === 4){
       //Grogu se mueve una casilla
-    }else if (randomNumber === 3){
-      //Ocultar coockie
-    }else if (randomNumber === 2){
-      //Ocultamos egg
-    }else{
-      // Ocultamos frog
-    }
-  };
+      setGrogu((position)=> position +1)
+      setStatus("Grogu avanza una casilla")
+    } else {
+      if(randomNumber === 1 && coockie.length > 0){
+        setCoockie(coockie.slice(1));
+        setStatus("Has ayudado a Mando a guardar una cookie")
+      } else if (randomNumber === 2 && egg.length > 0){
+        setEgg(egg.slice(1));
+        setStatus("Has ayudado a Mando a guardar un huevo")
+      } else if (randomNumber === 3 && frog.length > 0){
+        setFrog(frog.slice(1));
+        setStatus("Has ayudado a Mando a guardar una rana")
+    }}};
+    
+  //   if(randomNumber === 4){
+  //     //Grogu se mueve una casilla
+  //     setGrogu((position)=> position +1)
+  //     setStatus("Grogu avanza una casilla")
+  //   }else if (randomNumber === 3){
+  //     //Ocultar coockie
+  //     setCoockie.slice(1)
+  //     setStatus("Has ayudado a Mando a guardar una cookie")
+  //   }else if (randomNumber === 2){
+  //     //Ocultamos egg
+  //   }else{
+  //     // Ocultamos frog
+  //   }
+  // };
 
-  // const handleClick = () =>{
-  //   getDiceMove()
-  // }
 
   return (
     <>
@@ -51,23 +69,13 @@ function App() {
       <Dice dice={dice} rollDice={rollDice}/>
  
       <section>
-        <div className="game-status">En curso</div>
+        <div className="game-status">{status}</div>
       </section>
-      {/* <section className="goods-container">
-        <div className="goods-item">🍪</div>
-        <div className="goods-item">🍪</div>
-        <div className="goods-item">🍪</div>
-      </section>
-      <section className="goods-container">
-        <div className="goods-item">🥚</div>
-        <div className="goods-item">🥚</div>
-        <div className="goods-item">🥚</div>
-      </section>
-      <section className="goods-container">
-        <div className="goods-item">🐸</div>
-        <div className="goods-item">🐸</div>
-        <div className="goods-item">🐸</div>
-      </section> */}
+
+      <Good goods={coockie}/>
+      <Good goods={egg}/>
+      <Good goods={frog}/>
+      
       <section>
         <button className="restart-button">Reiniciar Juego</button>
       </section>
@@ -76,4 +84,5 @@ function App() {
     </>
   )
 }
+
 export default App

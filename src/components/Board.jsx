@@ -10,10 +10,6 @@ const Board = ({grogu}) => {
 
     {cells.map((_,index) => (<Cell key={index} groguPosition={index===grogu}/>))}
   
-      
-   
-
-  
    {/*<div className="cell"></div>
     <div className="cell"></div>
     <div className="cell"></div>
