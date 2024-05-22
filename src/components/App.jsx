@@ -1,10 +1,11 @@
 import "../styles/App.scss";
 import { useState, useEffect} from "react";
-import { Routes,Route,Link,NavLink, Router } from "react-router-dom";
+import { Routes,Route} from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Page from "./Page";
 import Instructions from "./Instructions";
+import Options from "./Options";
 
 // 
 function App() {
@@ -46,7 +47,7 @@ function App() {
     useEffect( () => {
       //Si el cell 6 contiene a grogu , mensaje de perder
       if(grogu === 6){
-        setStatus("Grogu se ha comido el cargamento, has perdido.")
+        setStatus(" ,Grogu se ha comido el cargamento, has perdido.")
       } else if (grogu < 6 && coockie.length === 0 && egg.length === 0 && frog.length === 0 ){
         setStatus(" ganaste, Mando completa la misión.");
 
@@ -76,11 +77,11 @@ function App() {
     <>
     <Header name={name}/>
     <Routes>
-      <Route path="/" element={<Page setName={setName} grogu={grogu} dice={dice} rollDice={rollDice} status={status} name={name} coockie={coockie} egg={egg} frog={frog} />}/>
+      <Route path="/" element={<Page setName={setName} grogu={grogu} dice={dice} rollDice={rollDice} status={status} setStatus={setStatus} name={name} coockie={coockie} egg={egg} frog={frog} />}/>
       <Route path= "/instructions" element= {<Instructions/>}/>
-    
+      <Route path= "/options" element= {<Options/>}/>
     </Routes>
-   
+  
     <Footer/>
 
     </>

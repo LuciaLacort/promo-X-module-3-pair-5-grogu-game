@@ -4,7 +4,7 @@ import Good from "./Good";
 import Form from "./Form";
 import GameStatus from "./GameStatus";
 
-const Page = ({setName,grogu,dice,rollDice,status,coockie,egg,frog}) => {
+const Page = ({setName,grogu,dice,rollDice,status,coockie,egg,frog,name}) => {
   return (
     <>
     <main className="page">
@@ -13,7 +13,7 @@ const Page = ({setName,grogu,dice,rollDice,status,coockie,egg,frog}) => {
       <Form setName={setName}/>
       <Board grogu={grogu}/>
       <Dice dice={dice} rollDice={rollDice}/>
-      <GameStatus status={status}  />
+      <GameStatus status={status} name={name} />
  
   
       <Good goods={coockie}/>
