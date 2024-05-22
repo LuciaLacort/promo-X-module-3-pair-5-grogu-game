@@ -1,11 +1,11 @@
 import "../styles/App.scss";
 import { useState, useEffect} from "react";
+import { Routes,Route,Link,NavLink, Router } from "react-router-dom";
 import Header from "./Header";
-import Board from "./Board";
-import Dice from "./Dice";
-import Good from "./Good";
-import Form from "./Form";
-import GameStatus from "./GameStatus";
+import Footer from "./Footer";
+import Page from "./Page";
+import Instructions from "./Instructions";
+
 // 
 function App() {
   const [grogu,setGrogu]= useState (0);
@@ -75,23 +75,13 @@ function App() {
   return (
     <>
     <Header name={name}/>
-    <main className="page">
-      <p>Introduce tu nombre para jugar</p>
-
-      <Form setName={setName}/>
-      <Board grogu={grogu}/>
-      <Dice dice={dice} rollDice={rollDice}/>
-      <GameStatus status={status} name={name}/>
- 
-  
-      <Good goods={coockie}/>
-      <Good goods={egg}/>
-      <Good goods={frog}/>
-      
-      <section>
-        <button className="restart-button">Reiniciar Juego</button>
-      </section>
-    </main>
+    <Routes>
+      <Route path="/" element={<Page setName={setName} grogu={grogu} dice={dice} rollDice={rollDice} status={status} name={name} coockie={coockie} egg={egg} frog={frog} />}/>
+      <Route path= "/instructions" element= {<Instructions/>}/>
+    
+    </Routes>
+   
+    <Footer/>
 
     </>
   )
